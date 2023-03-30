@@ -1,0 +1,42 @@
+.todo-items {
+  padding: 0.3rem 0.5rem;
+  margin: 10px 10px;
+  border-radius: 15px;
+  background-color: #363636;
+  color: #fff;
+}
+
+.todo-items__todo {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-items__todo h2 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.todo-items__button {
+  display: flex;
+  gap: 10px;
+}
+.todo-items__button .button {
+  border-radius: 10px;
+  padding: 0 20px;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.todo-items__button .button:hover {
+  opacity: 0.8;
+}
+
+.todo-items__button .button-done {
+  background-color: #8bb4ff;
+}
+.todo-items__button .button-delete {
+  background-color: #ff9189;
+}

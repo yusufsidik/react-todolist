@@ -1,0 +1,38 @@
+.todo-form {
+  border: none;
+  border-radius: 10px;
+  background-color: #363636;
+  color: #fff;
+  padding: 20px;
+}
+
+.todo-form_controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.todo-form_controls .control-todo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.control-todo_input {
+  border-radius: 5px;
+  width: 300px;
+  font-family: "Poppins", sans-serif;
+}
+.button-todo_add {
+  padding: 7px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #8bb4ff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+.button-todo_add:hover {
+  opacity: 0.8;
+}
