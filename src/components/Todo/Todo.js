@@ -30,17 +30,19 @@ export default function Todo() {
         <h2>Todo List</h2>
         <hr />
         <ul>
-          {todos.map((todo, index) => {
-            return (
-              <TodoItems
-                title={todo.title}
-                key={todo.id}
-                index={index}
-                isDone={todo.isDone}
-                onTodoIsDone={todoIsDone}
-              />
-            );
-          })}
+          {todos &&
+            Array.isArray(todos) &&
+            todos.map((todo, index) => {
+              return (
+                <TodoItems
+                  title={todo.title}
+                  key={todo.id}
+                  index={index}
+                  isDone={todo.isDone}
+                  onTodoIsDone={todoIsDone || (() => {})}
+                />
+              );
+            })}
         </ul>
       </main>
     </>
