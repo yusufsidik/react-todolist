@@ -9,6 +9,7 @@ export default function TodoForm(props) {
   };
   const submitHandler = (e) => {
     e.preventDefault();
+    if(todoInput === "") return;
     props.onAddTodo({
       id: Math.random().toString(),
       isDone: "belum",

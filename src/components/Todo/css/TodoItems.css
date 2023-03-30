@@ -21,6 +21,7 @@
   display: flex;
   gap: 10px;
 }
+
 .todo-items__button .button {
   border-radius: 10px;
   padding: 0 20px;
@@ -36,7 +37,18 @@
 
 .todo-items__button .button-done {
   background-color: #8bb4ff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
+
 .todo-items__button .button-delete {
   background-color: #ff9189;
+}
+
+.check,
+.uncheck {
+  width: 20px;
+  height: 20px;
+  color: #fff;
 }
