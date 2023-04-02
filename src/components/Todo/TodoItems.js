@@ -31,13 +31,13 @@ export default function TodoItem(props) {
           </h2>
           <div className="todo-items__button">
             <button
-              className="button button-done"
+              className={"button button-done " + checkCssIsDone().class}
               onClick={() => {
                 isDoneHandler(props.index, done);
                 setDone((prev) => (prev === "belum" ? "sudah" : "belum"));
               }}
             >
-              <div>{checkCssIsDone().title}</div>  <img src={"img/" + checkCssIsDone().img} className={checkCssIsDone().class} />
+              <div>{checkCssIsDone().title}</div>  <img src={"img/" + checkCssIsDone().img} className="icon-isdone" />
             </button>
             <button className="button button-delete">Delete</button>
           </div>

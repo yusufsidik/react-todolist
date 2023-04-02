@@ -25,7 +25,6 @@
 .todo-items__button .button {
   border-radius: 10px;
   padding: 0 20px;
-  color: #000;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -36,7 +35,6 @@
 }
 
 .todo-items__button .button-done {
-  background-color: #8bb4ff;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -46,9 +44,18 @@
   background-color: #ff9189;
 }
 
-.check,
-.uncheck {
+.icon-isdone {
   width: 20px;
   height: 20px;
   color: #fff;
+}
+
+.check {
+  background-color: #8bb4ff;
+  color: #000;
+}
+
+.uncheck {
+  background-color: #dcff90;
+  color: #000;
 }

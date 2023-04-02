@@ -1,6 +1,6 @@
 import "./css/TodoForm.css";
 import { useState } from "react";
-
+import toast from 'react-hot-toast';
 export default function TodoForm(props) {
   const [todoInput, setTodoInput] = useState("");
 
@@ -16,6 +16,7 @@ export default function TodoForm(props) {
       title: todoInput,
     });
     setTodoInput("");
+    toast.success("Sukses DItambahkan !");
   };
 
   return (

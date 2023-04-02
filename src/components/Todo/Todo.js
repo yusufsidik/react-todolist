@@ -2,6 +2,7 @@ import "./css/Todo.css";
 import TodoItems from "./TodoItems";
 import TodoForm from "./TodoForm";
 import { useState } from "react";
+import toast from 'react-hot-toast';
 export default function Todo() {
   const [todos, setTodos] = useState([]);
 
@@ -13,13 +14,16 @@ export default function Todo() {
 
   const todoIsDone = (index, val) => {
     const newTodos = todos;
-
+    let pesan = '';
     if (val === "belum") {
       newTodos[index].isDone = "sudah";
+      pesan = 'Sudah dikerjakan';
     } else if (val === "sudah") {
       newTodos[index].isDone = "belum";
+      pesan = 'Belum dikerjakan';
     }
     setTodos(newTodos);
+    toast.success(pesan);
   };
 
   return (
