@@ -2,7 +2,7 @@ import "./css/Todo.css";
 import TodoItems from "./TodoItems";
 import TodoForm from "./TodoForm";
 import { useState } from "react";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 export default function Todo() {
   const [todos, setTodos] = useState([]);
 
@@ -14,16 +14,22 @@ export default function Todo() {
 
   const todoIsDone = (index, val) => {
     const newTodos = todos;
-    let pesan = '';
     if (val === "belum") {
       newTodos[index].isDone = "sudah";
-      pesan = 'Sudah dikerjakan';
+      toast.success("Sudah dikerjakan");
     } else if (val === "sudah") {
       newTodos[index].isDone = "belum";
-      pesan = 'Belum dikerjakan';
+      toast.error("Belum dikerjakan");
     }
     setTodos(newTodos);
-    toast.success(pesan);
+  };
+
+  const todoDelete = (id) => {
+    const newTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    setTodos(newTodos);
+    toast.success("Kegiatan telah dihapus..");
   };
 
   return (
@@ -31,7 +37,7 @@ export default function Todo() {
       <main className="todo">
         <TodoForm onAddTodo={addTodo} />
         <br />
-        <h2>Todo List</h2>
+        <h2>Daftar Kegiatan</h2>
         <hr />
         <ul>
           {todos &&
@@ -43,10 +49,13 @@ export default function Todo() {
                   key={todo.id}
                   index={index}
                   isDone={todo.isDone}
+                  id={todo.id}
                   onTodoIsDone={todoIsDone || (() => {})}
+                  onTodoDelete={todoDelete || (() => {})}
                 />
               );
             })}
+          {todos.length === 0 ? <li>Belum ada kegiatan</li> : false}
         </ul>
       </main>
     </>

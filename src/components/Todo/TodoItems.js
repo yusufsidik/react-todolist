@@ -8,27 +8,34 @@ export default function TodoItem(props) {
 
   const [done, setDone] = useState(props.isDone);
   const checkCssIsDone = () => {
-    if(done === "sudah"){
+    if (done === "sudah") {
       return {
         img: "check.png",
         class: "check",
-        title: "Done"
-      }
+        title: "Selesai",
+      };
     } else {
       return {
         img: "uncheck2.png",
         class: "uncheck",
-        title: "Not Done"
-      }
+        title: "Belum selesai",
+      };
     }
-  }
+  };
+
+  const deleteTodo = (index) => {
+    props.onTodoDelete(index);
+  };
+
+  const confirmDelete = () => {
+    return window.confirm("Hapus Kegiatan ?") ? deleteTodo(props.id) : false;
+  };
+
   return (
     <>
       <li className="todo-items">
         <div className="todo-items__todo">
-          <h2 className="todo-items__title">
-            {props.title}
-          </h2>
+          <h2 className="todo-items__title">{props.title}</h2>
           <div className="todo-items__button">
             <button
               className={"button button-done " + checkCssIsDone().class}
@@ -37,9 +44,16 @@ export default function TodoItem(props) {
                 setDone((prev) => (prev === "belum" ? "sudah" : "belum"));
               }}
             >
-              <div>{checkCssIsDone().title}</div>  <img src={"img/" + checkCssIsDone().img} className="icon-isdone" />
+              <div>{checkCssIsDone().title}</div>{" "}
+              <img
+                src={"img/" + checkCssIsDone().img}
+                className="icon-isdone"
+                alt="icon-isdone"
+              />
             </button>
-            <button className="button button-delete">Delete</button>
+            <button className="button button-delete" onClick={confirmDelete}>
+              Hapus
+            </button>
           </div>
         </div>
       </li>
