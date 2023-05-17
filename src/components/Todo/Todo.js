@@ -23,17 +23,11 @@ export default function Todo() {
     setTodos(newTodos);
   };
 
-  const todoDelete = (index) => {
-    // const newTodos = todos;
-    // newTodos.filter((todo,i) => {
-    //   return todo
-    // })
-
-    // setTodos((prev) => {
-    //   return prev.filter((val, i) => {
-    //     return val[i] !== prev[index];
-    //   });
-    // });
+  const todoDelete = (id) => {
+    const newTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    setTodos(newTodos);
     toast.success("Todo deleted !");
   };
 
@@ -56,7 +50,7 @@ export default function Todo() {
                   isDone={todo.isDone}
                   onTodoIsDone={todoIsDone || (() => {})}
                   onDeleteTodo={todoDelete}
-                  idItem={todo.id}
+                  id={todo.id}
                 />
               );
             })}

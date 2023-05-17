@@ -3,8 +3,14 @@ export default function TodoItem(props) {
   const isDoneHandler = (index, val) => {
     props.onTodoIsDone(index, val);
   };
-  const deleteHandler = (index) => {
-    props.onDeleteTodo(index);
+  const deleteHandler = (id) => {
+    props.onDeleteTodo(id);
+  };
+
+  const confirmDelete = () => {
+    return window.confirm("Delete this todo ?")
+      ? deleteHandler(props.id)
+      : false;
   };
 
   const [done, setDone] = useState(props.isDone);
@@ -31,9 +37,7 @@ export default function TodoItem(props) {
             </button>
             <button
               className="bg-red-200 px-4 py-2 rounded-lg shadow-md hover:bg-red-300"
-              onClick={() => {
-                deleteHandler(props.index);
-              }}
+              onClick={confirmDelete}
             >
               Delete
             </button>
