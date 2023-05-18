@@ -12,10 +12,14 @@ export default function TodoForm(props) {
     if (todoInput === "") {
       return;
     }
+    if(todoInput.length > 20){
+      toast.error("Maximum 20 Character");
+      return;
+    }
     props.onAddTodo({
       id: Math.random().toString(),
       isDone: "belum",
-      title: todoInput,
+      title: todoInput.trim(),
     });
     setTodoInput("");
     toast.success("Todo Added !");
@@ -30,10 +34,11 @@ export default function TodoForm(props) {
             <div className="">
               <input
                 type="text"
-                className="px-4 py-2 rounded-md focus:outline-none shadow-md"
+                className="px-4 py-2 rounded-md focus:outline-none shadow-md w-full"
                 placeholder="Input Todo.."
                 onChange={onChangeTodoInput}
                 value={todoInput}
+                autoFocus
               />
             </div>
             <div className="">

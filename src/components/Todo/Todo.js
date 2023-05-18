@@ -7,9 +7,9 @@ export default function Todo() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (val) => {
-    setTodos((prev) => {
-      return [...prev, val];
-    });
+    const newTodos = [...todos];
+    newTodos.unshift(val);
+    setTodos(newTodos);
   };
 
   const todoIsDone = (index, val) => {
@@ -32,7 +32,7 @@ export default function Todo() {
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto px-4">
+    <div className="max-w-screen-lg mx-auto px-4 py-8">
       <div className="flex flex-col justify-center items-center min-h-screen">
         <h2 className="text-3xl font-semibold text-slate-700 mb-6">
           Todo List

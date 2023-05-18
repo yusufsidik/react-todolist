@@ -19,7 +19,7 @@ export default function TodoItem(props) {
     <>
       <li className="w-full rounded-md bg-sky-300 py-4 px-4 shadow-lg relative mb-4">
         <span
-          className={`rounded-tl-lg rounded-br-lg px-2 py-1 text-sm text-white absolute top-0 left-0 w-1/2 ${
+          className={`rounded-tl-lg rounded-br-lg px-2 py-1 text-sm text-white absolute top-0 left-0 w-1/4 ${
             done === "sudah" ? "bg-green-600" : "bg-pink-600"
           }`}
         ></span>
